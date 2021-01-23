@@ -1,0 +1,17 @@
+div.no1__register {
+  width: 271px;
+  height: auto;
+  /* background-color: red; */
+
+  margin: auto;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-top: 21px;
+}
+
+a.no1__register {
+  color: rgb(33, 150, 243);
+}

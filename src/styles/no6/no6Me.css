@@ -1,0 +1,56 @@
+div.no6__me {
+  width: 100%;
+  min-height: 40px;
+  height: auto;
+  /* background-color: lightgray; */
+
+  position: relative;
+  margin-top: 5px;
+  /* margin-bottom: 5px; */
+
+  overflow: auto;
+}
+
+div.no6__me {
+  background-color: white;
+}
+
+img.no6__me {
+  width: 20px;
+
+  margin-top: 10px;
+  margin-right: 5px;
+
+  border-radius: 50%;
+
+  float: right;
+}
+
+p.no6__me {
+  max-width: 50%;
+  background-color: gray;
+
+  float: right;
+  margin-right: 5px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 10px;
+
+  overflow: auto;
+}
+
+b.no6__me {
+  width: 100%;
+
+  padding: 10px 10px;
+
+  text-align: right;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  word-wrap: break-word;
+
+  overflow: hidden;
+}

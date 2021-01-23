@@ -1,0 +1,22 @@
+p.no5__name {
+  width: 175px;
+
+  position: absolute;
+  top: 10px;
+  left: 60px;
+
+  /* color: yellow; */
+  font-size: 16px;
+  font-style: italic;
+  font-weight: bold;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p.no5__name.no5__active {
+  color: white;
+  font-style: normal;
+  font-weight: normal;
+}

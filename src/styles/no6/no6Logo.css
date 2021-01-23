@@ -1,0 +1,15 @@
+div.no6__logo {
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+img.no6__logo {
+  width: 40px;
+
+  border-radius: 50%;
+}

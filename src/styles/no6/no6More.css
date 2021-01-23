@@ -1,0 +1,12 @@
+button.no6__more,
+button.no6__unknow {
+  width: 30px;
+  height: 30px;
+  background-color: silver;
+
+  margin-left: 10px;
+
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}

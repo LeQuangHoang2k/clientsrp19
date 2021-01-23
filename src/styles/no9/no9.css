@@ -1,0 +1,19 @@
+div.no9 {
+  width: 20%;
+  height: calc(100% - 20px);
+  background-color: gray;
+
+  position: relative;
+  margin-top: 10px;
+  margin-left: 25px;
+  margin-right: 10px;
+
+  float: left;
+
+  /* fake */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}

@@ -1,0 +1,58 @@
+form.no2__register {
+  width: 389px;
+  height: 563px;
+  /* background-color: royalblue; */
+
+  box-shadow: 0 0 10px silver;
+}
+
+div.no2__register {
+  width: 271px;
+  height: 41px;
+  /* background-color: red; */
+
+  position: relative;
+  margin: auto;
+  margin-top: 50px;
+}
+
+input.no2__register ~ label.no2__register {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+
+  color: silver;
+
+  transition: all 0.3s ease-in-out;
+}
+
+input.no2__register {
+  width: 271px;
+  height: 42px;
+
+  border: none;
+  border-bottom: 1px solid silver;
+
+  transition: all 0.3s ease-in-out;
+}
+
+input.no2__register.no2__name:focus ~ label.no2__name,
+input.no2__register.no2__phone:focus ~ label.no2__phone,
+input.no2__register.no2__email:focus ~ label.no2__email,
+input.no2__register.no2__password:focus ~ label.no2__password {
+  bottom: 41px;
+
+  color: orange;
+  font-size: 14px;
+}
+
+input.no2__register.no2__name:focus,
+input.no2__register.no2__phone:focus,
+input.no2__register.no2__email:focus,
+input.no2__register.no2__password:focus {
+  border-bottom: 3px solid orange;
+}
+/* 
+button.no2__register{
+  
+} */

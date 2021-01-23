@@ -1,0 +1,52 @@
+
+// import "../styles/no1/no1.css";
+// import "../styles/no1/no1Login.css";
+// import "../styles/no1/no1Title.css";
+// import "../styles/no1/no1Forgot.css";
+// import "../styles/no1/no1Text.css";
+// import "../styles/no1/no1Group.css";
+// import "../styles/no1/no1Fb.css";
+// import "../styles/no1/no1Google.css";
+// import "../styles/no1/no1Line.css";
+// import "../styles/no1/no1Register.css";
+
+//InputSearchUser
+
+      {contact.list.map((contacts, index) => {
+        let myContact;
+        contacts.receiverId._id !== user.id
+          ? (myContact = contacts.receiverId)
+          : (myContact = contacts.contactId);
+        return (
+          <div
+            className={
+              myContact._id === currentContact.id
+                ? "no5__contact no5__active"
+                : "no5__contact"
+            }
+            key={index}
+            onClick={() => {
+              openChat(myContact._id, myContact.name);
+            }}>
+            <div className="no5__avatar">
+              <img className="no5__avatar" src={Avatar} alt="Loi" />
+            </div>
+            <p
+              className={
+                myContact._id === currentContact.id
+                  ? "no5__name no5__active"
+                  : "no5__name"
+              }>
+              {myContact.name}
+            </p>
+            <p
+              className={
+                myContact._id === currentContact.id
+                  ? "no5__news no5__active"
+                  : "no5__news"
+              }>
+              {/* {contacts.lastMessage.message} */}
+            </p>
+          </div>
+        );
+      })}

@@ -1,0 +1,11 @@
+div.no5__body {
+  width: 100%;
+  height: calc(100% - 50px);
+  /* background-color: silver; */
+  /* background-image: linear-gradient(90deg, black, gray 50%); */
+
+  box-shadow: 0 0 1px black;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}

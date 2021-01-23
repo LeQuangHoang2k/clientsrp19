@@ -1,0 +1,19 @@
+div.no1__forgot {
+  width: 271px;
+  height: 21px;
+  /* background-color: royalblue; */
+
+  margin: auto;
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+a.no1__forgot {
+  font-size: 14px;
+  color: rgb(33, 150, 243);
+  text-decoration: none;
+  font-weight: bold;
+}

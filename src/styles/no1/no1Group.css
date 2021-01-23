@@ -1,0 +1,29 @@
+div.no1__group {
+  width: 301px;
+  height: 58px;
+  /* background-color: red; */
+
+  margin: auto;
+  margin-top: 15px;
+
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+button.no1__group {
+  width: 77px;
+  height: 46px;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 0 5px gray;
+
+  border-radius: 129.6px;
+
+  color: rgb(33, 150, 243);
+  font-size: 13px;
+}

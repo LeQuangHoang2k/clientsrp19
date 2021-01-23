@@ -1,0 +1,12 @@
+div.no6 {
+  width: calc(60% - 70px);
+  height: calc(100% - 20px);
+  background-color: white;
+
+  position: relative;
+  margin-top: 10px;
+
+  border-radius: 2px;
+
+  float: left;
+}

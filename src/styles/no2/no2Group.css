@@ -1,0 +1,51 @@
+div.no2__group {
+  width: 271px;
+  height: 46px;
+  /* background-color: red; */
+
+  margin: auto;
+  margin-top: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a.no2__group,
+button.no2__group {
+  width: 100px;
+  height: 46px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: auto;
+
+  border-radius: 130px;
+
+  color: white;
+}
+
+a.no2__group.no2__login {
+  background-image: linear-gradient(40deg, #45cafc, #303f9f);
+
+  margin-left: 0;
+  
+  font-size: 13px;
+}
+
+button.no2__group.no2__register {
+  background-image: linear-gradient(40deg, yellow, orangered);
+  margin-right: 0;
+}
+
+p.no2__group.no2__login,
+p.no2__group.no2__register {
+  text-align: center;
+
+  margin: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

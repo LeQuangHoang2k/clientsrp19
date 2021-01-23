@@ -1,0 +1,16 @@
+div.no7 {
+  width: 20%;
+  height: calc(100% - 20px);
+  background-color: white;
+
+  box-shadow: 0 0 1px black;
+
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 25px;
+
+  border-radius: 2px;
+
+  float: left;
+}

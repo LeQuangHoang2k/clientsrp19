@@ -1,0 +1,100 @@
+div.no10 {
+  width: calc(80% - 60px);
+  height: calc(100% - 20px);
+  /* background-color: white; */
+
+  box-shadow: 0 0 10px white;
+  /* border-radius: 15px; */
+
+  position: relative;
+  margin-top: 10px;
+  float: left;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+article.no10 {
+  position: relative;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+section.no10 {
+  width: 650px;
+  height: 110px;
+  background-color: white;
+
+  border-radius: 15px;
+
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+img.no10 {
+  width: 60px;
+
+  border-radius: 50%;
+
+  margin-top: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+}
+
+main.no10 {
+  width: 50%;
+  height: calc(110px - 30px);
+  /* background-color: red; */
+
+  border-left: 1px solid gray;
+
+  position: relative;
+  margin-top: 15px;
+  float: left;
+}
+
+a.no10,
+h6.no10,
+h5.no10,
+h4.no10 {
+  height: 20px;
+
+  padding-left: 10px;
+
+  color: gray;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+aside.no10 {
+  width: 110px;
+  height: 100px;
+  /* background-color: red; */
+
+  margin-top: calc((110px - 100px) / 2);
+  margin-right: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  float: right;
+}
+
+button.no10 {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+
+  box-shadow: 0 0 3px black;
+
+  position: relative;
+
+  font-weight: bold;
+  font-size: 20px;
+}
+
+button.no10.add {
+  margin-left: 5px;
+}

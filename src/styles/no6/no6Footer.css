@@ -1,0 +1,34 @@
+form.no6__footer {
+  width: 100%;
+  height: 40px;
+  background-color: white;
+
+  box-shadow: 0 0 1px black;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+
+button.no6__footer {
+  width: 30px;
+  height: 30px;
+  background-color: silver;
+
+  margin-left: 10px;
+
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+input.no6__footer {
+  width: calc(100% - 230px);
+  height: 30px;
+  background-color: silver;
+
+  margin-left: 10px;
+
+  padding-left: 10px;
+}

@@ -1,0 +1,66 @@
+form.no1__login {
+  width: 389px;
+  height: 563px;
+
+  box-shadow: 0 0 10px silver;
+}
+
+div.no1__login {
+  width: 271px;
+  height: 41px;
+
+  position: relative;
+  margin: auto;
+  margin-top: 50px;
+}
+
+input.no1__login ~ label.no1__login {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+
+  color: silver;
+
+  transition: all 0.3s ease-in-out;
+}
+
+input.no1__login {
+  width: 271px;
+  height: 42px;
+  /* background-color: red; */
+
+  border: none;
+  border-bottom: 1px solid silver;
+
+  transition: all 0.3s ease-in-out;
+}
+
+input.no1__login.no1__email:focus ~ label.no1__email,
+input.no1__login.no1__password:focus ~ label.no1__password {
+  bottom: 40px;
+
+  color: #45cafc;
+  font-size: 14px;
+}
+
+input.no1__login.no1__email:focus,
+input.no1__login.no1__password:focus {
+  border-bottom: 3px solid #45cafc;
+}
+
+button.no1__login {
+  width: 271px;
+  height: 46px;
+  background-image: linear-gradient(40deg, #45cafc, #303f9f);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 129.6px;
+
+  margin: auto;
+  margin-top: 56px;
+
+  color: white;
+}

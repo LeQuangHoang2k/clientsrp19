@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: rgb(33, 150, 243);
+}
+
+button:focus,
+input:focus {
+  outline: none;
+}
+
+body {
+  overflow: hidden;
+}

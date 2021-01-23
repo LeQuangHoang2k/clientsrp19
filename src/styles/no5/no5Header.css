@@ -1,0 +1,43 @@
+div.no5__header {
+  width: 100%;
+  height: 50px;
+  /* background-color:red; */
+  /* background-image: linear-gradient(45deg, black, gray, black); */
+  box-shadow: 0 0 1px black;
+
+  position: relative;
+
+}
+
+p.no5__header {
+  position: absolute;
+  top: 50%;
+  margin-left: 10px;
+  transform: translateY(-50%);
+
+  font-weight: bold;
+  font-size: 20px;
+
+  color: red;
+}
+
+button.no5__header {
+  width: 80px;
+  height: 30px;
+  background-color: white;
+  /* background-image: linear-gradient(45deg, yellow, black, yellow); */
+
+  /* border: 2px solid yellow; */
+  box-shadow: 0 0 1px black;
+
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+
+  color: yellow;
+}
+
+i.no5__header{
+  color: black;
+}

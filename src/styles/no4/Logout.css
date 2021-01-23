@@ -1,0 +1,26 @@
+button.no4__logout {
+  width: 50px;
+  height: 35px;
+  background-color: black;
+  /* box-shadow: 0 0 10px black; */
+  border-radius: 5px;
+  border: 3px solid #CCCCCC;
+
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 0;
+}
+
+img.no4__logout {
+  width: 20px;
+  filter: invert(100%);
+
+  object-fit: cover;
+}

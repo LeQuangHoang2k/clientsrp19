@@ -1,0 +1,58 @@
+div.no6__another {
+  width: 100%;
+  min-height: 40px;
+  /* background-color: lightgray; */
+
+  margin-top: 5px;
+  position: relative;
+
+  overflow: auto;
+}
+
+section.no6__another {
+  width: 50%;
+
+  padding-left: 40px;
+
+  font-size: 12px;
+
+  color: silver;
+}
+
+img.no6__another {
+  width: 20px;
+
+  margin-top: 10px;
+  margin-left: 5px;
+
+  border-radius: 50%;
+
+  float: left;
+}
+
+p.no6__another {
+  max-width: 50%;
+  background-color: silver;
+
+  float: left;
+  margin-left: 5px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 10px;
+
+  overflow: auto;
+}
+
+b.no6__another{
+  width: 100%;
+    
+  padding: 10px 10px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 100;
+  word-wrap: break-word;
+
+  overflow: hidden;
+}
