@@ -10,7 +10,7 @@ function No6Body(props) {
   const user = useSelector((state) => state.user);
   const currentContact = useSelector((state) => state.currentContact);
   const initMessage = useSelector((state) => state.initMessage);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [messageList, setMessageList] = useState([]);
 
@@ -34,7 +34,7 @@ function No6Body(props) {
         //UI
         setMessageList(listMessage);
       });
-  }, [user.id, currentContact.id]);
+  }, [user, currentContact, envURL]);
 
   useEffect(() => {
     if (initMessage.messageLast !== []) {

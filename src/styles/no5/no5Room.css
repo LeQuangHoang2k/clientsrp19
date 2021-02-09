@@ -1,17 +1,18 @@
 div#no5__room {
   width: 100%;
   height: 0px;
+  background-color: lightgray;
   /* background-image: linear-gradient(90deg, black, gray 10%); */
 
   position: relative;
 
   opacity: 0;
-
-  /* z-index: -10; */
 }
 
 #no5__select {
-  width: 90%;
+  width: calc(100% - 18px);
+  height: 60%;
+  background-color: lightgray;
 
   position: absolute;
   margin-top: 10px;

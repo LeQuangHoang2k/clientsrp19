@@ -12,7 +12,7 @@ div.no5__header {
 p.no5__header {
   position: absolute;
   top: 50%;
-  margin-left: 10px;
+  margin-left: 15px;
   transform: translateY(-50%);
 
   font-weight: bold;

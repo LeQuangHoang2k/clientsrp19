@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
-import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { offerAction } from "../../redux/actions/offerAction";
-
-FormSearch.propTypes = {};
 
 function FormSearch(props) {
   const [name, setName] = useState("");
@@ -43,14 +40,6 @@ function FormSearch(props) {
           onChange={(e) => setName(e.target.value)}
         />
       </form>
-      {/* {userList.map((users, index) => {
-        if (!userList === []) return alert("error");
-        return (
-          <div key={index}>
-            {users.name} and {users.email}
-          </div>
-        );
-      })} */}
     </div>
   );
 }

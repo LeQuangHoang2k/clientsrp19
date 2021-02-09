@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function Name(props) {
-  const { _id, contactList, nameOfGroup } = props;
+  const { contactList, nameOfGroup } = props;
 
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   let [name, setName] = useState("");
 
@@ -30,7 +30,7 @@ function Name(props) {
 
     //room >2 person
     setName(nameOfGroup);
-  }, []);
+  }, [name]);
 
   return (
     <div>

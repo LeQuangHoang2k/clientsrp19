@@ -9,16 +9,9 @@ function No6Header(props) {
   const user = useSelector((state) => state.user);
   const currentContact = useSelector((state) => state.currentContact);
 
-  const [display, setDisplay] = useState("");
-
-  useEffect(() => {
-    if (currentContact.name !== "default") return setDisplay("");
-    setDisplay("none");
-  }, [currentContact.name]);
-
   return (
     <div className="no6__header">
-      <div className="no6__logo" style={{ display: display }}>
+      <div className="no6__logo">
         <img src={Avatar} alt="Loi" className="no6__logo" />
         <p className="no6__group">{currentContact.name} </p>
       </div>

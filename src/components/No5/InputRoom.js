@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import "../../styles/no5/no5Room.css";
 
 function InputRoom(props) {
-  const envURL = useSelector((state) => state.env.URL);
+  // const envURL = useSelector((state) => state.env.URL);
   const user = useSelector((state) => state.user);
   const contact = useSelector((state) => state.contact);
   const socket = useSelector((state) => state.socket.socket);
@@ -50,7 +50,7 @@ function InputRoom(props) {
         }
       });
     });
-  }, [contact.list]);
+  }, [contact.list, options, user.name]);
 
   //non-priority
   useEffect(() => {
@@ -58,7 +58,7 @@ function InputRoom(props) {
     socket.on("success-invited", () => {
       alert("bạn đã được mời");
     });
-  }, []);
+  }, [socket]);
 
   return (
     <div className="no5__contact" id="no5__room">

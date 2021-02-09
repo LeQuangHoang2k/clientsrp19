@@ -1,0 +1,26 @@
+button.custom-no6__timer {
+  width: 30px;
+  height: 30px;
+  background-color: silver;
+  /* background-image: url("../../img/timer.png"); */
+
+  margin-left: 10px;
+
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+button.custom-no6__timer:focus{
+  outline: none;
+}
+
+img.no6__timer{
+  width: 30px;
+
+  object-fit: cover;
+}

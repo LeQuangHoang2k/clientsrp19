@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-import Avatar from "../../img/avatar.jpg";
 import Logo from "./Logo";
 import FormSearch from "./FormSearch";
 import Logout from "./Logout";

@@ -9,9 +9,9 @@ function NewMessage(props) {
   const [fullMessage, setFullMessage] = useState("");
 
   useEffect(() => {
-    console.log(lastMessage);
-    if (!lastMessage || !lastMessage.lastMessageId) return alert("ỏ");
-    console.log(lastMessage.lastMessageId.senderId.name);
+    // console.log(lastMessage);
+    if (!lastMessage || !lastMessage.lastMessageId) return;
+    // console.log(lastMessage.lastMessageId.senderId.name);
     setName(lastMessage.lastMessageId.senderId.name);
     setNewMessage(lastMessage.lastMessageId.message);
     setFullMessage(

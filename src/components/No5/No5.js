@@ -11,9 +11,7 @@ import "../../styles/no5/no5Name.css";
 import No5Header from "./No5Header";
 import No5Body from "./No5Body";
 
-No5.propTypes = {};
-
-function No5(props) {
+function No5() {
   return (
     <div className="no5">
       <No5Header />

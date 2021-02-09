@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+
 import No4Header from "./No4Header";
+
 import No5 from "../No5/No5";
 import No6 from "../No6/No6";
 import No7 from "../No7/No7";
@@ -8,8 +10,6 @@ import No7 from "../No7/No7";
 import "../../styles/no4/no4.css";
 import "../../styles/no4/no4Header.css";
 import "../../styles/no4/no4Body.css";
-
-// import Avatar from "../../img/avatar.jpg";
 
 function No4(props) {
   const user = useSelector((state) => state.user);

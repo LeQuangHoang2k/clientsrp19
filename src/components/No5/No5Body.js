@@ -19,14 +19,14 @@ function No5Body(props) {
 
   const [contactList, setContactList] = useState(contact.list || []);
   let [name, setName] = useState("");
-  const [idActive, setIdActive] = useState("")
+  const [idActive, setIdActive] = useState("");
 
   useEffect(() => {
     socket.emit("join-my-id", { userId: user.id });
     socket.emit("list-contact", { userId: user.id });
     socket.on("list-contact-success", (data) => {
       const { message, room } = data;
-      // alert("online success" + message);
+      // alert("join r nha");
       console.log(room);
 
       //redux
@@ -56,7 +56,7 @@ function No5Body(props) {
     dispatch(currentContactAction({ id: id, name }));
 
     //UI-ignore
-    setIdActive(id)
+    setIdActive(id);
   };
 
   return (
@@ -74,7 +74,11 @@ function No5Body(props) {
       {contactList.map((item, index) => {
         return (
           <div
-            className={item._id===idActive?"no5__contact no5__active":"no5__contact"}
+            className={
+              item._id === idActive
+                ? "no5__contact no5__active"
+                : "no5__contact"
+            }
             key={index}
             onClick={() => {
               openChat(item._id, item.memberIds, item.name);

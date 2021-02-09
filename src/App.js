@@ -6,6 +6,8 @@ import No2 from "./components/No2/No2";
 import No4 from "./components/No4/No4";
 import No8 from "./components/No8/No8";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
   return (
     <Router>

@@ -35,7 +35,7 @@ function Index(props) {
 
     if (!token) return props.history.push("/");
     props.history.push("/chat");
-  }, []);
+  }, [props.history, user.name]);
 
   const login = (e) => {
     e.preventDefault();

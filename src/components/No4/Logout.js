@@ -2,14 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import { loginAction } from "../../redux/actions/userAction";
 import LogoutImage from "../../img/logout.png";
 import "../../styles/no4/Logout.css";
-import { currentContactAction } from "../../redux/actions/currentContactAction";
 
 function Logout(props) {
-  const dispatch = useDispatch();
-
   const logout = (e) => {
     e.preventDefault();
 
