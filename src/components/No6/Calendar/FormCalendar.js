@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-function FormTimer(props) {
+function FormCalendar(props) {
   const { show, setShow } = props;
 
   const user = useSelector((state) => state.user);
   const currentContact = useSelector((state) => state.currentContact);
   const socket = useSelector((state) => state.socket.socket);
 
-  const [content, setContent] = useState(null);
+  const [content, setContent] = useState("");
   const [datetime, setDatetime] = useState(null);
-  const [repeat, setRepeat] = useState(null);
-  const [term, setTerm] = useState(null);
+  const [repeat, setRepeat] = useState("");
+  const [term, setTerm] = useState("");
 
   const handleClose = () => setShow(false);
 
@@ -20,7 +20,8 @@ function FormTimer(props) {
     //input
     if (!datetime) return alert("Vui long nhap date & time");
 
-    socket.emit("reminder", { user, currentContact });
+    const data = { user, currentContact, content, datetime, repeat, term };
+    socket.emit("reminder", data);
 
     //redux
 
@@ -57,10 +58,10 @@ function FormTimer(props) {
         <Form.Group controlId="exampleForm.ControlSelect2">
           <Form.Label>Repeat</Form.Label>
           <Form.Control as="select" onChange={(e) => setRepeat(e.target.value)}>
-            <option value="0">None</option>
-            <option value="1">Day</option>
-            <option value="2">Week</option>
-            <option value="3">Month</option>
+            <option value="">None</option>
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+            <option value="month">Month</option>
           </Form.Control>
         </Form.Group>
 
@@ -85,4 +86,4 @@ function FormTimer(props) {
   );
 }
 
-export default FormTimer;
+export default FormCalendar;

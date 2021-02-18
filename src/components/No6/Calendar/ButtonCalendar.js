@@ -4,9 +4,9 @@ import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 
 import timerImage from "../../../img/timer.png";
-import FormTimer from "./FormTimer";
+import FormCalendar from "./FormCalendar";
 
-function ButtonTimer(props) {
+function ButtonCalendar(props) {
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(true);
@@ -22,11 +22,11 @@ function ButtonTimer(props) {
           <Modal.Title>Timer</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <FormTimer show={show} setShow={setShow} />
+          <FormCalendar show={show} setShow={setShow} />
         </Modal.Body>
       </Modal>
     </div>
   );
 }
 
-export default ButtonTimer;
+export default ButtonCalendar;

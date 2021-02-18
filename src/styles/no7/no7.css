@@ -15,4 +15,7 @@ div.no7 {
   border-radius: 2px;
 
   float: left;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
 }

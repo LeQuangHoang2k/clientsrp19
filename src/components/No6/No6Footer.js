@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { addMessageAction } from "../../redux/actions/initMessageAction";
 import ButtonSubFeatures from "./ButtonSubFeatures";
-import ButtonTimer from "./Timer/ButtonTimer";
+import ButtonCalendar from "./Calendar/ButtonCalendar";
 
 function No6Footer(props) {
   // const envURL = useSelector((state) => state.env.URL);
@@ -58,7 +58,7 @@ function No6Footer(props) {
     <div className="element">
       <form className="no6__footer" onSubmit={Chat}>
         <ButtonSubFeatures />
-        <ButtonTimer />
+        <ButtonCalendar />
 
         <button type="button" className="no6__feature">
           ?

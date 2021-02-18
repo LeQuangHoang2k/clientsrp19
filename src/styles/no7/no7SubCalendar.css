@@ -1,0 +1,111 @@
+div.no7__subCalendar {
+  margin-top: 15px !important;
+}
+
+div.col-md-6 {
+  padding: 0 !important;
+}
+
+div.no7__subCalendar--day {
+  width: 100%;
+  height: 40px;
+  background-color: silver;
+  border: 1px solid black;
+  border-bottom-left-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: black;
+  font-weight: bold;
+  padding: 0px !important;
+}
+div.no7__subCalendar--month {
+  height: 20px;
+  background-color: black;
+  border-top-left-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 0px !important;
+}
+
+div.no7__subCalendar--content {
+  height: 20px;
+  background-color: black;
+  border-top-right-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 0px !important;
+}
+
+div.no7__subCalendar--time {
+  height: 20px;
+  background-color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-weight: bold;
+  font-size: 9px;
+  padding: 0px !important;
+}
+
+div.no7__subCalendar--repeat {
+  height: 20px;
+  background-color: black;
+  border-bottom-right-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 0px !important;
+}
+
+div.no7__subCalendar--close {
+  height: 20px;
+  background-color: black;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: red;
+  /* display: none; */
+}
+
+div.no7__subCalendar--edit {
+  height: 20px;
+  background-color: black;
+  /* border: 1px solid white; */
+  /* box-shadow: 0 0 1px ; */
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  /* display: none; */
+}
