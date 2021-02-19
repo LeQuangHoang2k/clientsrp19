@@ -23,8 +23,8 @@ function InputRoom(props) {
     socket.emit("create-room", { user, member });
 
     // UI
-
     setMember([]);
+    socket.emit("fetch-room", { userId: user.id });
   };
 
   const onChange = (params) => {

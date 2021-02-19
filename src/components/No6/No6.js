@@ -25,8 +25,8 @@ function No6(props) {
   const socket = useSelector((state) => state.socket.socket);
 
   useEffect(() => {
-    socket.on("reminder-success", () => {
-      alert("alo");
+    socket.on("create-calendar-success", () => {
+      alert("no6.js ok");
       // console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     });
   }, []);

@@ -21,20 +21,14 @@ function FormCalendar(props) {
     if (!datetime) return alert("Vui long nhap date & time");
 
     const data = { user, currentContact, content, datetime, repeat, term };
-    socket.emit("reminder", data);
+    socket.emit("create-calendar", data);
 
     //redux
 
     //UI
     setShow(false);
+    alert("Tạo lịch hẹn thành công");
   };
-
-  // useEffect(() => {
-  //   socket.on("alo", () => {
-  //     // alert("alo");
-  //     console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-  //   });
-  // },[]);
 
   return (
     <>

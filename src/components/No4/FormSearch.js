@@ -29,6 +29,7 @@ function FormSearch(props) {
         props.history.push("/search");
       });
   };
+  
   return (
     <div>
       <form className="no4__header" onSubmit={search}>

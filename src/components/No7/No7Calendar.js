@@ -1,11 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Collapse, Row } from "react-bootstrap";
 import No7SubCalendar from "./No7SubCalendar";
 
 import timerImage from "../../img/timer.png";
+import { useSelector } from "react-redux";
 
 function No7Calendar(props) {
+  const socket = useSelector((state) => state.socket.socket);
+  const user = useSelector((state) => state.user);
+  const currentContact = useSelector((state) => state.currentContact);
+
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return alert("chua mo calendar");
+    alert("dang mo calendar");
+
+    socket.emit("fetch-calendar");
+  }, [open]);
+
+  useEffect(() => {
+    socket.on("create-calendar-success", () => {
+      alert("helo");
+    });
+  }, [socket]);
 
   return (
     <div>

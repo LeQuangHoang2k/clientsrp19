@@ -47,15 +47,16 @@ function No6Body(props) {
 
   return (
     <div className="no6__body">
-      {messageList.map((message, index) => {
-        if (!message.message) return;
-        if (user.id !== message.senderId) {
+      {messageList.map((item, index) => {
+        if (!item.message) return;
+        if (user.id !== item.senderId._id) {
+          console.log("message", item);
           return (
             <div className="no6__another" key={index}>
-              <section className="no6__another">{message.senderName}</section>
+              <section className="no6__another">{item.senderId.name}</section>
               <img className="no6__another" src={Avatar} alt="Loi" />
               <p className="no6__another">
-                <b className="no6__another">{message.message}</b>
+                <b className="no6__another">{item.message}</b>
               </p>
             </div>
           );
@@ -64,7 +65,7 @@ function No6Body(props) {
           <div className="no6__me" key={index}>
             <img src={Avatar} alt="loi" className="no6__me" />
             <p className="no6__me">
-              <b className="no6__me">{message.message}</b>
+              <b className="no6__me">{item.message}</b>
             </p>
           </div>
         );

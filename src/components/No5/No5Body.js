@@ -23,10 +23,9 @@ function No5Body(props) {
 
   useEffect(() => {
     socket.emit("join-my-id", { userId: user.id });
-    socket.emit("list-contact", { userId: user.id });
-    socket.on("list-contact-success", (data) => {
+    socket.emit("fetch-room", { userId: user.id });
+    socket.on("fetch-room-success", (data) => {
       const { message, room } = data;
-      // alert("join r nha");
       console.log(room);
 
       //redux

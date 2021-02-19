@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
+import Listen from "../Listen";
 import No4Header from "./No4Header";
 
 import No5 from "../No5/No5";
@@ -12,22 +13,18 @@ import "../../styles/no4/no4Header.css";
 import "../../styles/no4/no4Body.css";
 
 function No4(props) {
-  const user = useSelector((state) => state.user);
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    if (!token) return props.history.push("/");
-  }, []);
-
   return (
-    <div className="no4">
-      <No4Header />
-      <div className="no4__body">
-        <No5 />
-        <No6 />
-        <No7 />
+    <>
+      <Listen props={props} />
+      <div className="no4">
+        <No4Header />
+        <div className="no4__body">
+          <No5 />
+          <No6 />
+          <No7 />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

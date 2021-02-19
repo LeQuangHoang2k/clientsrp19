@@ -31,7 +31,9 @@ function No10(props) {
           );
         })}
       </article>
-      <div className="">de xuat ket ban</div>
+      <div className="" style={{ textAlign: "center" }}>
+        Đề xuất bạn bè
+      </div>
     </div>
   );
 }

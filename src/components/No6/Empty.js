@@ -12,7 +12,7 @@ function Empty(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // return;
+    // nhận tin nhắn khi no6 có <Empty/>
     socket.on("response-message", async ({ lastMessage, error }) => {
       if (error) return alert(error);
 
@@ -27,6 +27,8 @@ function Empty(props) {
       // await dispatch(updateContactAction({ preLastMessage, lastMessage }));
     });
   }, [initMessage.list, contact.list, socket, dispatch]);
+
+
   return (
     <div className="no6">
       <div className="no6__header">

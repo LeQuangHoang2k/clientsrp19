@@ -9,30 +9,18 @@ import chatImg from "../../img/chat.png";
 
 function ButtonChat(props) {
   const { offerId } = props;
-  const user = useSelector((state) => state.user);
   const envURL = useSelector((state) => state.env.URL);
+  const user = useSelector((state) => state.user);
+  const socket = useSelector((state) => state.socket.socket);
   const dispatch = useDispatch();
 
-  const toChat = () => {
-    alert(offerId);
-    Axios.post(`${envURL}/user/contact-user`, { userId: user.id, offerId })
-      .catch((err) => {
-        if (err) return alert("lỗi : " + err);
-      })
-      .then((res) => {
-        if (res.data.error) return alert(res.data.error);
-        alert("Liên hệ thành công");
-
-        //redux
-
-        //UI
-
-        props.history.push("/chat");
-      });
+  const createRoom = () => {
+    alert("offer la" + offerId);
+    socket.emit("add-room", { user, offerId });
   };
 
   return (
-    <button className="no10 chat" type="submit" onClick={toChat}>
+    <button className="no10 chat" type="submit" onClick={createRoom}>
       <img className="no10 chat" src={chatImg} alt="error" />
     </button>
   );

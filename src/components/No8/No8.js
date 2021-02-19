@@ -7,26 +7,21 @@ import No10 from "../No10/No10";
 import "../../styles/no4/no4.css";
 import "../../styles/no4/no4Header.css";
 import "../../styles/no4/no4Body.css";
+import Listen from "../Listen";
 
-function No4(props) {
-  const user = useSelector((state) => state.user);
-
-  useEffect(() => {
-    console.log("no4 log :", user.name);
-    const token = localStorage.getItem("token");
-
-    if (!token) return props.history.push("/");
-  }, []);
-
+function No8(props) {
   return (
-    <div className="no4">
-      <No4Header />
-      <div className="no4__body">
-        <No9 />
-        <No10 />
+    <>
+      <Listen props={props} />
+      <div className="no4">
+        <No4Header />
+        <div className="no4__body">
+          <No9 />
+          <No10 />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
-export default No4;
+export default No8;

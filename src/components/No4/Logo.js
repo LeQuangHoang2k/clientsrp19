@@ -1,10 +1,7 @@
 import React from "react";
 
-import logoImage from "../../img/logo.jfif";
-
-
-
 import "../../styles/no4/no4Header.css";
+import logoImage from "../../img/logo.jfif";
 
 function Logo(props) {
   return (
