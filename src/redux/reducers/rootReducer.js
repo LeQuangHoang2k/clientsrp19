@@ -9,6 +9,7 @@ import { contactReducer } from "./contactReducer";
 import { initMessageReducer } from "./initMessageReducer";
 import { roomReducer } from "./roomReducer";
 import { socketReducer } from "./socketReducer";
+import { calendarReducer } from "./calendarReducer";
 
 const rootReducer = combineReducers({
   env: envReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   initMessage: initMessageReducer,
   room: roomReducer,
   socket: socketReducer,
+  calendar: calendarReducer,
 });
 
 const persistConfig = {

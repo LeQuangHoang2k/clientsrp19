@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updateContactAction } from "../redux/actions/contactAction";
 import { addMessageAction } from "../redux/actions/initMessageAction";
+import { calendarUpdateAction } from "../redux/actions/calendarAction";
 
 const Listen = ({ props }) => {
   const user = useSelector((state) => state.user);
-  // const currentContact = useSelector((state) => state.currentContact);
+  const currentContact = useSelector((state) => state.currentContact);
   const contact = useSelector((state) => state.contact);
   const initMessage = useSelector((state) => state.initMessage);
   const socket = useSelector((state) => state.socket.socket);
@@ -47,10 +48,9 @@ const Listen = ({ props }) => {
   }, [socket]);
 
   useEffect(() => {
-    socket.on("response-message", async ({ lastMessage, error }) => {
-      if (error) return alert(error);
-
+    socket.on("response-message", async ({ lastMessage }) => {
       // console.log(lastMessage);
+
       //redux
       await dispatch(
         addMessageAction({
@@ -58,7 +58,18 @@ const Listen = ({ props }) => {
         })
       );
     });
-  }, [initMessage.list, contact.list, socket, dispatch]);
+    // }, [initMessage.list, contact.list, socket, dispatch]);
+  }, [socket]);
+
+  useEffect(() => {
+    socket.on("fetch-calendar-success", async ({ calendarFetch }) => {
+      alert("fetch-calendar-success");
+
+      //redux
+      await dispatch(calendarUpdateAction({ list: calendarFetch }));
+    });
+  }, [socket]);
+
   return <div></div>;
 };
 

@@ -9,22 +9,25 @@ function No7Calendar(props) {
   const socket = useSelector((state) => state.socket.socket);
   const user = useSelector((state) => state.user);
   const currentContact = useSelector((state) => state.currentContact);
+  const calendar = useSelector((state) => state.calendar);
 
   const [open, setOpen] = useState(false);
+  const [listCalendar, setListCalendar] = useState(calendar.list);
 
   useEffect(() => {
-    if (!open) return alert("chua mo calendar");
-    alert("dang mo calendar");
+    if (!open) return;
 
-    socket.emit("fetch-calendar");
+    socket.emit("fetch-calendar", { user, currentContact });
   }, [open]);
 
-  useEffect(() => {
-    socket.on("create-calendar-success", () => {
-      alert("helo");
-    });
-  }, [socket]);
+  // useEffect(() => {
 
+  // }, [socket]);
+
+  useEffect(() => {
+    // console.log("calendar", calendar.list[0]);
+    setListCalendar(calendar.list);
+  }, [calendar.list]);
   return (
     <div>
       <Row>
@@ -42,8 +45,9 @@ function No7Calendar(props) {
       </Row>
       <Collapse in={open}>
         <div id="example-collapse-text">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((item, key) => {
-            return <No7SubCalendar key={key} item={item} />;
+          {listCalendar.map((item) => {
+            console.log(item);
+            return <No7SubCalendar key={item._id} item={item} />;
           })}
         </div>
       </Collapse>

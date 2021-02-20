@@ -3,7 +3,7 @@ import { Form, Button, Modal } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 function FormCalendar(props) {
-  const { show, setShow } = props;
+  const { show, setShow, item } = props;
 
   const user = useSelector((state) => state.user);
   const currentContact = useSelector((state) => state.currentContact);
@@ -18,14 +18,26 @@ function FormCalendar(props) {
 
   const handleSubmit = () => {
     //input
-    if (!datetime) return alert("Vui long nhap date & time");
+    if (!datetime) return alert("Vui long nhap date & time " + datetime);
 
-    const data = { user, currentContact, content, datetime, repeat, term };
-    socket.emit("create-calendar", data);
+    const data = {
+      user,
+      currentContact,
+      content,
+      datetime,
+      repeat,
+      term,
+      // id: item._id,
+    };
+
+    if (!item) socket.emit("create-calendar", data);
+    else socket.emit("edit-calendar", data);
 
     //redux
 
     //UI
+    socket.emit("fetch-calendar", { user, currentContact });
+
     setShow(false);
     alert("Tạo lịch hẹn thành công");
   };
@@ -37,6 +49,7 @@ function FormCalendar(props) {
           <Form.Label>Content</Form.Label>
           <Form.Control
             type="text"
+            // defaultValue={content}
             onChange={(e) => setContent(e.target.value)}
           />
         </Form.Group>
@@ -45,6 +58,7 @@ function FormCalendar(props) {
           <Form.Label>Date & Time (*)</Form.Label>
           <Form.Control
             type="datetime-local"
+            // defaultValue={datetime}
             onChange={(e) => setDatetime(e.target.value)}
           />
         </Form.Group>
@@ -63,6 +77,7 @@ function FormCalendar(props) {
           <Form.Label>Term</Form.Label>
           <Form.Control
             type="datetime-local"
+            // defaultValue={term}
             onChange={(e) => setTerm(e.target.value)}
           />
         </Form.Group>
