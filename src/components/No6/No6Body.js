@@ -48,9 +48,9 @@ function No6Body(props) {
   return (
     <div className="no6__body">
       {messageList.map((item, index) => {
+        console.log("51", item);
         if (!item.message) return;
         if (user.id !== item.senderId._id) {
-          console.log("message", item);
           return (
             <div className="no6__another" key={index}>
               <section className="no6__another">{item.senderId.name}</section>

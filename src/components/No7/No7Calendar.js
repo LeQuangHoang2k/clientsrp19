@@ -34,9 +34,7 @@ function No7Calendar(props) {
             onClick={() => setOpen(!open)}
             aria-controls="example-collapse-text"
             aria-expanded={open}
-            size="lg"
-            block
-            fluid>
+            size="lg">
             <img src={timerImage} className="no7__listCalendar" alt="timer" />
             &nbsp; List reminder
           </div>

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { updateContactAction } from "../redux/actions/contactAction";
+import { addMessageAction } from "../redux/actions/initMessageAction";
 
 const Listen = ({ props }) => {
   const user = useSelector((state) => state.user);
-  const currentContact = useSelector((state) => state.currentContact);
+  // const currentContact = useSelector((state) => state.currentContact);
   const contact = useSelector((state) => state.contact);
   const initMessage = useSelector((state) => state.initMessage);
   const socket = useSelector((state) => state.socket.socket);
@@ -45,6 +46,19 @@ const Listen = ({ props }) => {
     });
   }, [socket]);
 
+  useEffect(() => {
+    socket.on("response-message", async ({ lastMessage, error }) => {
+      if (error) return alert(error);
+
+      // console.log(lastMessage);
+      //redux
+      await dispatch(
+        addMessageAction({
+          lastMessage,
+        })
+      );
+    });
+  }, [initMessage.list, contact.list, socket, dispatch]);
   return <div></div>;
 };
 

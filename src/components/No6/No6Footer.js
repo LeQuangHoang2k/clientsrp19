@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { addMessageAction } from "../../redux/actions/initMessageAction";
+// import { addMessageAction } from "../../redux/actions/initMessageAction";
 import ButtonSubFeatures from "./ButtonSubFeatures";
 import ButtonCalendar from "./Calendar/ButtonCalendar";
 
@@ -9,10 +9,10 @@ function No6Footer(props) {
   // const envURL = useSelector((state) => state.env.URL);
   const user = useSelector((state) => state.user);
   const currentContact = useSelector((state) => state.currentContact);
-  const contact = useSelector((state) => state.contact);
-  const initMessage = useSelector((state) => state.initMessage);
+  // const contact = useSelector((state) => state.contact);
+  // const initMessage = useSelector((state) => state.initMessage);
   const socket = useSelector((state) => state.socket.socket);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [message, setMessage] = useState("");
 
@@ -36,23 +36,6 @@ function No6Footer(props) {
     //UI
     setMessage("");
   };
-
-  useEffect(() => {
-    // return;
-    socket.on("response-message", async ({ lastMessage, error }) => {
-      if (error) return alert(error);
-
-      console.log(lastMessage);
-      //redux
-      await dispatch(
-        addMessageAction({
-          lastMessage,
-        })
-      );
-
-      // await dispatch(updateContactAction({ preLastMessage, lastMessage }));
-    });
-  }, [initMessage.list, contact.list, socket, dispatch]);
 
   return (
     <div className="element">

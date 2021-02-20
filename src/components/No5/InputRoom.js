@@ -54,7 +54,7 @@ function InputRoom(props) {
 
   //non-priority
   useEffect(() => {
-    console.log(member);
+    // console.log(member);
     socket.on("success-invited", () => {
       alert("bạn đã được mời");
     });

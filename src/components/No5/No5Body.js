@@ -11,7 +11,7 @@ import NewMessage from "./NewMessage";
 
 function No5Body(props) {
   const user = useSelector((state) => state.user);
-  const currentContact = useSelector((state) => state.currentContact);
+  // const currentContact = useSelector((state) => state.currentContact);
   const contact = useSelector((state) => state.contact);
   const initMessage = useSelector((state) => state.initMessage);
   const socket = useSelector((state) => state.socket.socket);
@@ -25,7 +25,7 @@ function No5Body(props) {
     socket.emit("join-my-id", { userId: user.id });
     socket.emit("fetch-room", { userId: user.id });
     socket.on("fetch-room-success", (data) => {
-      const { message, room } = data;
+      const { room } = data;
       console.log(room);
 
       //redux

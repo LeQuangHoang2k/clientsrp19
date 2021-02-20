@@ -16,7 +16,6 @@ import No6Body from "./No6Body";
 import No6Footer from "./No6Footer";
 
 import { useSelector } from "react-redux";
-import { useState } from "react";
 import { useEffect } from "react";
 import Empty from "./Empty";
 
@@ -29,7 +28,7 @@ function No6(props) {
       alert("no6.js ok");
       // console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
     });
-  }, []);
+  }, [socket]);
 
   if (currentContact.name === "default") return <Empty />;
 
