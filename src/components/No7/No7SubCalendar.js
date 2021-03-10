@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Modal, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import FormCalendar from "../No6/Calendar/FormCalendar";
@@ -30,9 +30,15 @@ const No7SubCalendar = ({ item }) => {
 
   const handleClose = () => setShow(false);
 
-  // useEffect(() => {
-  //   setContent
-  // }, [content]);
+  useEffect(() => {
+    setContent(item.content);
+    setDay(item.datetime.substring(8, 10));
+    setMonth(item.datetime.substring(5, 7));
+    setDateTime(item.datetime.substring(8, 10));
+    setRepeat(item.repeat);
+    setTerm(item.term);
+  }, [item]);
+
   return (
     <>
       <div className="no7__subCalendar">

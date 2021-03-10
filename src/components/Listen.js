@@ -21,6 +21,11 @@ const Listen = ({ props }) => {
     if (!token) return props.history.push("/");
   }, [token]);
 
+  //receive notify from calendar
+  // useEffect(() => {
+  //   socket.emit("fetch-calendar", { user, currentContact });
+  // }, [socket]);
+
   useEffect(() => {
     // console.log(member);
     socket.on("success-invited", () => {
@@ -61,9 +66,16 @@ const Listen = ({ props }) => {
     // }, [initMessage.list, contact.list, socket, dispatch]);
   }, [socket]);
 
+  const handleCalendarTerm = () => {
+    alert("handleCalendar");
+  };
+
   useEffect(() => {
     socket.on("fetch-calendar-success", async ({ calendarFetch }) => {
       alert("fetch-calendar-success");
+
+      //handle calendar
+      handleCalendarTerm();
 
       //redux
       await dispatch(calendarUpdateAction({ list: calendarFetch }));

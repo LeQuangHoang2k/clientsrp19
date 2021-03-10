@@ -14,24 +14,41 @@ function FormCalendar(props) {
   const [repeat, setRepeat] = useState("");
   const [term, setTerm] = useState("");
 
+  const checkTimeline = () => {
+    if (term) {
+      const a = new Date(term);
+      const b = new Date(datetime);
+      const distanceTime = a - b;
+      return distanceTime;
+    }
+  };
+
   const handleClose = () => setShow(false);
 
   const handleSubmit = () => {
     //input
     if (!datetime) return alert("Vui long nhap date & time " + datetime);
+    if (checkTimeline() <= 0) return alert("Timeline khong phu hop ");
 
-    const data = {
-      user,
-      currentContact,
-      content,
-      datetime,
-      repeat,
-      term,
-      // id: item._id,
-    };
-
-    if (!item) socket.emit("create-calendar", data);
-    else socket.emit("edit-calendar", data);
+    if (!item)
+      socket.emit("create-calendar", {
+        user,
+        currentContact,
+        content,
+        datetime,
+        repeat,
+        term,
+      });
+    else
+      socket.emit("edit-calendar", {
+        user,
+        currentContact,
+        content,
+        datetime,
+        repeat,
+        term,
+        id: item._id,
+      });
 
     //redux
 
