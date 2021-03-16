@@ -17,17 +17,10 @@ const Listen = ({ props }) => {
   const [contactList, setContactList] = useState(contact.list || []);
 
   useEffect(() => {
-    // alert("Listen.js");
     if (!token) return props.history.push("/");
   }, [token]);
 
-  //receive notify from calendar
-  // useEffect(() => {
-  //   socket.emit("fetch-calendar", { user, currentContact });
-  // }, [socket]);
-
   useEffect(() => {
-    // console.log(member);
     socket.on("success-invited", () => {
       alert("bạn đã được mời");
     });
@@ -39,10 +32,17 @@ const Listen = ({ props }) => {
     });
   }, [socket]);
 
+  const handleRingCalendar = (listCalendar) => {
+    listCalendar.forEach((item)=>{
+      console.log(item);
+    })
+  };
+
   useEffect(() => {
     socket.on("fetch-room-success", (data) => {
-      const { message, room } = data;
-      console.log(room);
+      const { message, room, listCalendar } = data;
+
+      handleRingCalendar(listCalendar);
 
       //redux
       dispatch(updateContactAction({ list: data.room }));
@@ -66,16 +66,9 @@ const Listen = ({ props }) => {
     // }, [initMessage.list, contact.list, socket, dispatch]);
   }, [socket]);
 
-  const handleCalendarTerm = () => {
-    alert("handleCalendar");
-  };
-
   useEffect(() => {
     socket.on("fetch-calendar-success", async ({ calendarFetch }) => {
       alert("fetch-calendar-success");
-
-      //handle calendar
-      handleCalendarTerm();
 
       //redux
       await dispatch(calendarUpdateAction({ list: calendarFetch }));

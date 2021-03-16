@@ -11,7 +11,7 @@ import NewMessage from "./NewMessage";
 
 function No5Body(props) {
   const user = useSelector((state) => state.user);
-  // const currentContact = useSelector((state) => state.currentContact);
+  const currentContact = useSelector((state) => state.currentContact);
   const contact = useSelector((state) => state.contact);
   const initMessage = useSelector((state) => state.initMessage);
   const socket = useSelector((state) => state.socket.socket);
@@ -21,7 +21,7 @@ function No5Body(props) {
   let [name, setName] = useState("");
   const [idActive, setIdActive] = useState("");
 
-  useEffect(() => {
+  const handleGetAllRoom = () => {
     socket.emit("join-my-id", { userId: user.id });
     socket.emit("fetch-room", { userId: user.id });
     socket.on("fetch-room-success", (data) => {
@@ -34,10 +34,27 @@ function No5Body(props) {
       //UI
       setContactList(room);
     });
+  };
+
+  const handleRingTheBell = () => {
+    // alert("handleRingTheBell");
+
+    // socket.emit("fetch-all-calendar");
+  };
+
+  useEffect(() => {
+    handleGetAllRoom();
+    handleRingTheBell();
   }, [socket, initMessage.messageLast]);
 
-  const openChat = (id, contactList, nameOfGroup) => {
-    alert(id);
+  // handleClickDisplayChat
+
+  const handleLoadCalendar = (id) => {
+    socket.emit("fetch-calendar", { user, currentContact: id });
+  };
+
+  const handleClickDisplayChat = async (id, contactList, nameOfGroup) => {
+    // alert(id);
 
     //input
     if (!id) return alert("ko có id và name");
@@ -52,10 +69,12 @@ function No5Body(props) {
     }
 
     //redux
-    dispatch(currentContactAction({ id: id, name }));
+    await dispatch(currentContactAction({ id: id, name }));
 
     //UI-ignore
     setIdActive(id);
+
+    handleLoadCalendar(id);
   };
 
   return (
@@ -80,7 +99,7 @@ function No5Body(props) {
             }
             key={index}
             onClick={() => {
-              openChat(item._id, item.memberIds, item.name);
+              handleClickDisplayChat(item._id, item.memberIds, item.name);
             }}>
             <div className="no5__avatar">
               <img className="no5__avatar" src={Avatar} alt="Loi" />
@@ -114,7 +133,7 @@ function No5Body(props) {
             }
             key={index}
             onClick={() => {
-              openChat(myContact._id, myContact.name);
+              handleClickDisplayChat(myContact._id, myContact.name);
             }}>
             <div className="no5__avatar">
               <img className="no5__avatar" src={Avatar} alt="Loi" />

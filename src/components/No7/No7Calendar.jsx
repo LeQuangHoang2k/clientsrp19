@@ -6,6 +6,7 @@ import timerImage from "../../img/timer.png";
 import { useSelector } from "react-redux";
 
 function No7Calendar(props) {
+  // const { display } = props;
   const socket = useSelector((state) => state.socket.socket);
   const user = useSelector((state) => state.user);
   const currentContact = useSelector((state) => state.currentContact);
@@ -14,20 +15,20 @@ function No7Calendar(props) {
   const [open, setOpen] = useState(false);
   const [listCalendar, setListCalendar] = useState(calendar.list);
 
+  const handleLoadCalendar = () => {
+    socket.emit("fetch-calendar", { user, currentContact });
+  };
+
   useEffect(() => {
     if (!open) return;
 
-    socket.emit("fetch-calendar", { user, currentContact });
+    handleLoadCalendar();
   }, [open]);
 
-  // useEffect(() => {
-
-  // }, [socket]);
-
   useEffect(() => {
-    // console.log("calendar", calendar.list[0]);
     setListCalendar(calendar.list);
   }, [calendar.list]);
+
   return (
     <div>
       <Row>

@@ -23,12 +23,11 @@ function No6(props) {
   const currentContact = useSelector((state) => state.currentContact);
   const socket = useSelector((state) => state.socket.socket);
 
-  useEffect(() => {
-    socket.on("create-calendar-success", () => {
-      alert("no6.js ok");
-      // console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-    });
-  }, [socket]);
+  // useEffect(() => {
+  //   socket.on("create-calendar-success", () => {
+  //     alert("no6.js ok");
+  //   });
+  // }, [socket]);
 
   if (currentContact.name === "default") return <Empty />;
 
