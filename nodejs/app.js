@@ -5,7 +5,7 @@ const app = express();
 
 app.use(cors());
 
-app.use("/users", require("./routers/user"));
+app.use("/api", require("./routers/user"));
 // app.use("/users", require("./routers/user"));
 // app.use("/users", require("./routers/user"));
 // app.use("/users", require("./routers/user"));
