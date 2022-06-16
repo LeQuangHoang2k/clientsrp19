@@ -4,37 +4,35 @@ const axios = require("axios");
 // get
 
 exports.getAll = async (req, res) => {
-  //check input
+  const body = {
+    email: "hoang019@gmail.com",
+    username: "Hoang",
+    password: "Phuc@123",
+  };
 
-  // check db
-  const users = await UsersModel.find({ email: "theibdn159555@gmail.com" });
-  console.log("🚀 ~ file: get.js ~ line 10 ~ getAll ~ users", users);
+  const a = axios.get("https://provinces.open-api.vn/api/?depth=3");
+  const a1 = axios.post("http://10.0.100.131:8080/api/v1/users/register", body);
+  const a2 = axios.post("http://10.0.100.131:8080/api/v1/users/register", body);
+  const a3 = axios.post("http://10.0.100.131:8080/api/v1/users/register", body);
+  const a4 = axios.post("http://10.0.100.131:8080/api/v1/users/register", body);
+  const a5 = axios.post("http://10.0.100.131:8080/api/v1/users/register", body);
+  const a6 = axios.post("http://10.0.100.131:8080/api/v1/users/register", body);
+  const a7 = axios.post("http://10.0.100.131:8080/api/v1/users/register", body);
 
-  // main
+  var count = 0;
 
-  const promise1 = Promise.resolve(3);
-  const promise2 = 42;
-  const promise3 = new Promise((resolve, reject) => {
-    setTimeout(resolve, 100, "foo");
-  });
+  try {
+    const mutilResponses = await Promise.all([a1, a2, a3, a4, a5, a6, a7]);
 
-  const a = axios.get("http://10.0.100.131:8080/api/v1/products/all");
-  const b = axios.get("http://10.0.100.131:8080/api/v1/products/categories");
-  const c = axios.get("http://10.0.100.131:8080/api/v1/products/suppliers");
-
-  // Promise.all([b, c]).then((values) => {
-  //   values.forEach((element) => {
-  //     console.log(element.data.createdAt);
-  //   });
-  // });
-
-  const mutilResponses = await Promise.all([b, c]);
-  mutilResponses.forEach((element) => {
+    console.log("try", mutilResponses);
+  } catch (error) {
     console.log(
-      "🚀 ~ file: get.js ~ line 26 ~ exports.getAll= ~ res",
-      element.data.createdAt
+      "🚀 ~ file: get.js ~ line 30 ~ exports.getAll= ~ error",
+      error?.response?.data
     );
-  });
+
+    console.log("catch");
+  }
 
   //res
 
