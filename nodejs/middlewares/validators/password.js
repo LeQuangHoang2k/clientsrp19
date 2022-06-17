@@ -1,4 +1,7 @@
 const { body, validationResult, check } = require("express-validator");
+const bcrypt = require("bcrypt");
+
+const { UsersModel } = require("../../models/Users/users");
 const { verifyInfor } = require("../verifyInfor");
 
 exports.checkPassword = async (req, res, next) => {
@@ -27,5 +30,18 @@ exports.checkPassword = async (req, res, next) => {
     "Your password must have number, uppercase, lowercase character and 1 special character like @, #, $, %"
   )
     .matches(/^[0-9a-zA-Z@#$%]*$/)
+    .run(req);
+};
+
+exports.checkPasswordNotMatch = async (req, res, next) => {
+  await check("password")
+    .custom(async (value) => {
+      const userFind = await UsersModel.findOne({ email: req.body.email });
+
+      const fakePassword = value + process.env.KEY_PASSWORD;
+      const compare = await bcrypt.compare(fakePassword, userFind.password);
+
+      if (!compare) return Promise.reject("Password: not match");
+    })
     .run(req);
 };

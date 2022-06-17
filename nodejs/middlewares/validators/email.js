@@ -1,5 +1,4 @@
 const { body, validationResult, check, custom } = require("express-validator");
-// const { Promise } = require("mongoose");
 const { UsersModel } = require("../../models/Users/users");
 const { verifyInfor } = require("../verifyInfor");
 

@@ -1,14 +1,18 @@
-const { body, validationResult, check } = require("express-validator");
 const { verifyInfor } = require("../../../middlewares/verifyInfor");
-const { generateError } = require("../../../utils/gennerate-error-code");
-const { checkEmail, checkEmailInDB } = require("../../../middlewares/validators/email");
+const {
+  checkEmail,
+  checkEmailInDB,
+} = require("../../../middlewares/validators/email");
 const { checkPassword } = require("../../../middlewares/validators/password");
 
 exports.registerValidator = async (req, res, next) => {
+  // check email
   await checkEmail(req, res, next);
   await checkEmailInDB(req, res, next);
-  
+
+  // check password
   await checkPassword(req, res, next);
 
+  // verify
   await verifyInfor(req, res, next);
 };
