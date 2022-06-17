@@ -42,6 +42,9 @@ exports.checkPasswordNotMatch = async (req, res, next) => {
       const compare = await bcrypt.compare(fakePassword, userFind.password);
 
       if (!compare) return Promise.reject("Password: not match");
+
+      userFind.password = undefined;
+      req.userDB = userFind;
     })
     .run(req);
 };
