@@ -16,7 +16,3 @@ exports.generateError = (msg, param, location) => {
 
   return newError;
 };
-
-//check undefined
-//check null
-//check regex
