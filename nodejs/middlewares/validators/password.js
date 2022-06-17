@@ -43,8 +43,12 @@ exports.checkPasswordNotMatch = async (req, res, next) => {
 
       if (!compare) return Promise.reject("Password: not match");
 
-      userFind.password = undefined;
-      req.userDB = userFind;
+      await saveUserInRequest(req, userFind);
     })
     .run(req);
+};
+
+const saveUserInRequest = async (req, data) => {
+  data.password = undefined;
+  req.userDB = data;
 };

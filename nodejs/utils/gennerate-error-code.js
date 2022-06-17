@@ -1,13 +1,11 @@
 const express = require("express");
 
 exports.generateError = (msg, param, location) => {
-  const test = msg.split(" ");
+  const textUppercase = msg.split(" ");
 
   var msgAt0 = "";
 
-  test.forEach((element) => {
-    msgAt0 += element.charAt(0).toUpperCase();
-  });
+  textUppercase.forEach((element) => (msgAt0 += element.charAt(0).toUpperCase()));
 
   const paramAt0 = param.charAt(0).toUpperCase();
   const locationAt0 = location.charAt(0).toUpperCase();
