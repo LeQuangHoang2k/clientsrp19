@@ -27,7 +27,7 @@ exports.checkPassword = async (req, res, next) => {
 
   await check(
     "password",
-    "Your password must have number, uppercase, lowercase character and 1 special character like @, #, $, %"
+    "Must have number, uppercase, lowercase character and 1 special character like @, #, $, %"
   )
     .matches(/^[0-9a-zA-Z@#$%]*$/)
     .run(req);

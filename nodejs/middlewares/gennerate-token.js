@@ -9,7 +9,7 @@ exports.generateToken = async (data) => {
 };
 
 exports.generateRefreshToken = async (data) => {
-  const refreshToken = jwt.sign({ data }, process.env.ACCESS_TOKEN_KEY, {
+  const refreshToken = jwt.sign({ data }, process.env.REFRESH_TOKEN_KEY, {
     expiresIn: "14d",
   });
 

@@ -12,7 +12,7 @@ const { verifyToken } = require("../middlewares/verifyToken");
 
 const router = express.Router();
 
-router.post("/login", verifyToken, loginValidator, login);
+router.post("/login", loginValidator, login);
 router.post("/register", registerValidator, register);
 
 module.exports = router;
