@@ -14,32 +14,21 @@ exports.checkAccessToken = async (req, res, next) => {
     .custom(async (value) => {
       value = value.split(" ")[1];
 
-      const payloadAT = await compareTokenKey(
-        value,
-        process.env.ACCESS_TOKEN_KEY
-      );
-      console.log(
-        "🚀 ~ file: token.js ~ line 17 ~ .custom ~  payloadAT",
-        payloadAT
-      );
+      const { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } = process.env;
 
+      // check key AT
+      const payloadAT = await compareTokenKey(value, ACCESS_TOKEN_KEY);
       if (payloadAT) return;
 
-      var payloadRT = await compareTokenKey(
-        value,
-        process.env.REFRESH_TOKEN_KEY
-      );
-
+      // check key RT
+      var payloadRT = await compareTokenKey(value, REFRESH_TOKEN_KEY);
       if (!payloadRT) return await Promise.reject();
-      console.log(
-        "🚀 ~ file: token.js ~ line 24 ~ .custom ~ payloadRT",
-        payloadRT
-      );
 
+      // check expired
       const payloadActive = await checkActiveToken(payloadRT);
-
       if (!payloadActive) return await Promise.reject();
 
+      // gen set token
       generateSetToken(payloadActive.data);
     })
     .run(req);
