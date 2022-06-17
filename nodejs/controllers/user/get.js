@@ -5,9 +5,11 @@ const axios = require("axios");
 
 exports.getAll = async (req, res) => {
   //res
+  var newAccessToken = req.accessToken ? req.accessToken : undefined;
 
   res.json({
     message: 123,
+    accessToken: newAccessToken,
   });
 };
 

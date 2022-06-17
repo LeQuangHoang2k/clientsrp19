@@ -29,7 +29,7 @@ exports.checkAccessToken = async (req, res, next) => {
       if (!payloadActive) return await Promise.reject();
 
       // gen set token
-      generateSetToken(payloadActive.data);
+      generateSetToken(req, payloadActive.data);
     })
     .run(req);
 };
@@ -48,16 +48,7 @@ const checkActiveToken = async (payload) => {
   return true;
 };
 
-const generateSetToken = async (data) => {
+const generateSetToken = async (req, data) => {
   const accessToken = await generateToken(data);
-  const refreshToken = await generateToken(data);
-
-  console.log(
-    "🚀 ~ file: token.js ~ line 52 ~ generateSetToken ~ accessToken",
-    accessToken
-  );
-  console.log(
-    "🚀 ~ file: token.js ~ line 54 ~ generateSetToken ~ refreshToken",
-    refreshToken
-  );
+  req.accessToken = accessToken;
 };
