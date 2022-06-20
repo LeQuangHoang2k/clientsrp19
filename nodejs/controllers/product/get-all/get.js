@@ -1,4 +1,4 @@
-const { ProductsModel } = require("../../models/Products/products");
+const { ProductsModel } = require("../../../models/Products/products");
 
 exports.getAll = async (req, res) => {
   // skip là bỏ qua bnhiu item
