@@ -17,11 +17,11 @@ exports.checkAccessToken = async (req, res, next) => {
       const { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } = process.env;
 
       // check key AT
-      const payloadAT = await compareTokenKey(value, ACCESS_TOKEN_KEY);
+      const payloadAT = await matchTokenKey(value, ACCESS_TOKEN_KEY);
       if (payloadAT) return;
 
       // check key RT
-      var payloadRT = await compareTokenKey(value, REFRESH_TOKEN_KEY);
+      var payloadRT = await matchTokenKey(value, REFRESH_TOKEN_KEY);
       if (!payloadRT) return await Promise.reject();
 
       // check expired
@@ -34,7 +34,7 @@ exports.checkAccessToken = async (req, res, next) => {
     .run(req);
 };
 
-const compareTokenKey = async (value, key) => {
+const matchTokenKey = async (value, key) => {
   try {
     const payload = jwt.verify(value, key);
     return payload;
