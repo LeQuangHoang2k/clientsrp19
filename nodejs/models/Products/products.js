@@ -1,16 +1,17 @@
 const mongoose = require("mongoose");
 
 const ProductsSchema = new mongoose.Schema({
+  id: { type: Number },
   name: { type: String },
-  price: { type: Schema.Types.Decimal128 },
+  price: { type: mongoose.Schema.Types.Decimal128 },
   image: { type: String },
-//   category_id: { type: Int32Array },
-  quantity: { type: Int32Array },
-  tax: { type: Float64Array },
+  //   category_id: { type: Int32Array },
+  quantity: { type: Number },
+  tax: { type: Number },
   description: { type: String },
 });
 
-exports.ProductsModel = mongoose.model("Products", ProductsSchema);
+exports.ProductsModel = mongoose.model("products", ProductsSchema);
 // "name":"iphone 12 pro max",
 // "price":20000000,
 // "image":"http://abc.com",
