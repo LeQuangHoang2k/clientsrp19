@@ -17,8 +17,11 @@ exports.checkIdNotMatch = async (req, res, next) => {
 
       if (!productFind) return Promise.reject("not match");
 
-      //   await saveUserInRequest(req, productFind);
-      //   await saveProductInRequest(req, productFind);
+      await saveProductInRequest(req, productFind);
     })
     .run(req);
+};
+
+const saveProductInRequest = async (req, data) => {
+  req.productDB = data;
 };

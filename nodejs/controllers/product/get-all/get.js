@@ -19,4 +19,8 @@ exports.getAll = async (req, res) => {
     message: "ok",
     products: productsDB,
   });
+
+  // skip là bỏ qua bnhiu item
+  // linmit là lấy bnhiu item
+  // var { id } = req.params;
 };
