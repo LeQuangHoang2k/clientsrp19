@@ -1,12 +1,12 @@
 const express = require("express");
-const { getAll } = require("../controllers/product/get-all/get");
+const { getAll } = require("../controllers/product/get-all/get-all.controller");
 const {
   getAllValidator,
-} = require("../controllers/product/get-all/validate.get-all");
-const { getDetail } = require("../controllers/product/get-detail/get-detail");
+} = require("../controllers/product/get-all/get-all.validate");
+const { getDetail } = require("../controllers/product/get-detail/get-detail.controller");
 const {
   getDetailValidator,
-} = require("../controllers/product/get-detail/validate.get-detail");
+} = require("../controllers/product/get-detail/get-detail.validate");
 
 const { verifyInfor } = require("../middlewares/verifyInfor");
 const { verifyToken } = require("../middlewares/verifyToken");

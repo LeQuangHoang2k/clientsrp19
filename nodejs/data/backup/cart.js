@@ -13,8 +13,8 @@ exports.fakeCart = [
     name: "iphone 12 pro max #2",
     price: 20000000,
     image: "http://abc.com",
-    quantity: 1000,
-    tax: 10,
+    quantity: 5,
+    tax: 5,
     description: "Đây là sản phẩm chất lượng cao và lâu đời",
   },
 ];

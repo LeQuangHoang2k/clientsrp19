@@ -1,5 +1,5 @@
 const express = require("express");
-const { addToCart } = require("../controllers/cart/add-to-cart");
+const { addToCart } = require("../controllers/cart/add-to-cart/add-to-cart.controller");
 
 const { verifyToken } = require("../middlewares/verifyToken");
 

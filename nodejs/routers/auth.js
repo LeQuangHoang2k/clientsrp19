@@ -1,12 +1,12 @@
 const express = require("express");
 
-const { login } = require("../controllers/auth/login");
-const { loginValidator } = require("../controllers/auth/login/validate.login");
+const { login } = require("../controllers/auth/login/login.controller");
+const { loginValidator } = require("../controllers/auth/login/login.validate");
 
-const { register } = require("../controllers/auth/register");
+const { register } = require("../controllers/auth/register/register.controller");
 const {
   registerValidator,
-} = require("../controllers/auth/register/validate.register");
+} = require("../controllers/auth/register/register.validate");
 
 const { verifyToken } = require("../middlewares/verifyToken");
 

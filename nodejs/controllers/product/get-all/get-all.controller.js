@@ -5,12 +5,9 @@ exports.getAll = async (req, res) => {
   // skip là bỏ qua bnhiu item
   // linmit là lấy bnhiu item
   var { limit, page } = req.query;
-  console.log(
-    "🚀 ~ file: get.js ~ line 7 ~ exports.getAll= ~ limit, page",
-    limit,
-    page
-  );
+
   var page = page ? page : 1;
+  var limit = limit ? limit : 10;
 
   const productsDB = await ProductsModel.find({})
     .skip(limit * (page - 1))
