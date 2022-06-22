@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-const ProductsSchema = new mongoose.Schema(
+const CartsSchema = new mongoose.Schema(
   {
     user_id: { type: mongoose.Schema.Types.ObjectId },
-    carts: [
+    cart: [
       {
         name: { type: String },
         price: { type: mongoose.Schema.Types.Decimal128 },
@@ -17,7 +17,7 @@ const ProductsSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-exports.ProductsModel = mongoose.model("products", ProductsSchema);
+exports.CartsModel = mongoose.model("carts", CartsSchema);
 // "name":"iphone 12 pro max",
 // "price":20000000,
 // "image":"http://abc.com",
