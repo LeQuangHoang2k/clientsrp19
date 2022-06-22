@@ -1,7 +1,7 @@
 const {
   checkId,
   checkIdNotMatch,
-} = require("../../../middlewares/validators/id");
+} = require("../../../middlewares/validators/param/id");
 const { verifyInfor } = require("../../../middlewares/verifyInfor");
 
 exports.getDetailValidator = async (req, res, next) => {

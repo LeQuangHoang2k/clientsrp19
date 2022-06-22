@@ -1,6 +1,6 @@
 const { body, validationResult, check, custom } = require("express-validator");
-const { UsersModel } = require("../../models/Users/users");
-const { verifyInfor } = require("../verifyInfor");
+const { UsersModel } = require("../../../models/Users/users");
+const { verifyInfor } = require("../../verifyInfor");
 
 exports.checkEmail = async (req, res, next) => {
   await check("email", "Undefined or null")

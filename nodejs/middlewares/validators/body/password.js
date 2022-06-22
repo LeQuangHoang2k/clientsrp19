@@ -1,8 +1,8 @@
 const { body, validationResult, check } = require("express-validator");
 const bcrypt = require("bcrypt");
 
-const { UsersModel } = require("../../models/Users/users");
-const { verifyInfor } = require("../verifyInfor");
+const { UsersModel } = require("../../../models/Users/users");
+const { verifyInfor } = require("../../verifyInfor");
 
 exports.checkPassword = async (req, res, next) => {
   await check("password", "Undefined or null")

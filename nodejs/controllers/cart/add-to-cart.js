@@ -10,6 +10,7 @@ exports.addToCart = async (req, res) => {
   const cartSave = new CartsModel({
     user_id: req.custom.payload.data._id,
     cart: fakeCart,
+    state: 1,
   });
 
   await cartSave.save();

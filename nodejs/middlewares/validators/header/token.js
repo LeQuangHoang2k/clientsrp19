@@ -1,9 +1,9 @@
 const { body, validationResult, check, header } = require("express-validator");
 const bcrypt = require("bcrypt");
 
-const { UsersModel } = require("../../models/Users/users");
+const { UsersModel } = require("../../../models/Users/users");
 const jwt = require("jsonwebtoken");
-const { generateToken } = require("../gennerate-token");
+const { generateToken } = require("../../../utils/gennerate-token");
 
 exports.checkAccessToken = async (req, res, next) => {
   await header("authorization", "Undefined or null")

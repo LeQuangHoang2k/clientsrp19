@@ -13,6 +13,7 @@ const CartsSchema = new mongoose.Schema(
         description: { type: String },
       },
     ],
+    state: { type: Number },
   },
   { timestamps: true }
 );

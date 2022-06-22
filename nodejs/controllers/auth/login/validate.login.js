@@ -2,11 +2,11 @@ const { verifyInfor } = require("../../../middlewares/verifyInfor");
 const {
   checkEmail,
   checkEmailNotInDB,
-} = require("../../../middlewares/validators/email");
+} = require("../../../middlewares/validators/body/email");
 const {
   checkPassword,
   checkPasswordNotMatch,
-} = require("../../../middlewares/validators/password");
+} = require("../../../middlewares/validators/body/password");
 
 exports.loginValidator = async (req, res, next) => {
   // check email

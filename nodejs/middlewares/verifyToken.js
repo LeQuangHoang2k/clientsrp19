@@ -1,4 +1,4 @@
-const { checkAccessToken } = require("./validators/token");
+const { checkAccessToken } = require("./validators/header/token");
 const { verifyInfor } = require("./verifyInfor");
 
 exports.verifyToken = async (req, res, next) => {

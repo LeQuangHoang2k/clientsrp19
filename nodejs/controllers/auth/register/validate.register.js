@@ -2,8 +2,8 @@ const { verifyInfor } = require("../../../middlewares/verifyInfor");
 const {
   checkEmail,
   checkEmailInDB,
-} = require("../../../middlewares/validators/email");
-const { checkPassword } = require("../../../middlewares/validators/password");
+} = require("../../../middlewares/validators/body/email");
+const { checkPassword } = require("../../../middlewares/validators/body/password");
 
 exports.registerValidator = async (req, res, next) => {
   // check email

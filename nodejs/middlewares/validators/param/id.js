@@ -1,6 +1,6 @@
 const { param } = require("express-validator");
-const { ProductsModel } = require("../../models/Products/products");
-const { verifyInfor } = require("../verifyInfor");
+const { ProductsModel } = require("../../../models/Products/products");
+const { verifyInfor } = require("../../verifyInfor");
 
 exports.checkId = async (req, res, next) => {
   await param("id", "Undefined or null").exists({ checkFalsy: true }).run(req);
