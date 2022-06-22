@@ -12,6 +12,8 @@ exports.checkAccessToken = async (req, res, next) => {
 
   await header("authorization", "Invalid value")
     .custom(async (value) => {
+      if (!value) return await Promise.reject();
+
       value = value.split(" ")[1];
 
       const { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } = process.env;
