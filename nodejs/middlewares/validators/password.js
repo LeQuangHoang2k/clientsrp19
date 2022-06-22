@@ -50,5 +50,9 @@ exports.checkPasswordNotMatch = async (req, res, next) => {
 
 const saveUserInRequest = async (req, data) => {
   data.password = undefined;
-  req.userDB = data;
+
+  req.custom = {
+    ...req.custom,
+    userDB: data,
+  };
 };

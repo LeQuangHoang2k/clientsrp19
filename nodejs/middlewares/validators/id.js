@@ -23,5 +23,5 @@ exports.checkIdNotMatch = async (req, res, next) => {
 };
 
 const saveProductInRequest = async (req, data) => {
-  req.productDB = data;
+  req.custom = { ...req.custom, productDB: data };
 };

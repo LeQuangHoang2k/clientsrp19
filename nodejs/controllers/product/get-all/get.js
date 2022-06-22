@@ -1,4 +1,5 @@
 const { ProductsModel } = require("../../../models/Products/products");
+const { resetRequest } = require("../../../utils/reset-request");
 
 exports.getAll = async (req, res) => {
   // skip là bỏ qua bnhiu item
@@ -19,6 +20,8 @@ exports.getAll = async (req, res) => {
     message: "ok",
     products: productsDB,
   });
+
+  resetRequest(req);
 
   // skip là bỏ qua bnhiu item
   // linmit là lấy bnhiu item

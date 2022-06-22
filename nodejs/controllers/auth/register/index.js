@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const { UsersModel } = require("../../../models/Users/users");
+const { resetRequest } = require("../../../utils/reset-request");
 
 exports.register = async (req, res) => {
   const { email, password } = req.body;
@@ -17,4 +18,6 @@ exports.register = async (req, res) => {
   res.status(200).json({
     message: "ĐĂNG KÍ THÀNH CÔNG",
   });
+
+  resetRequest(req);
 };

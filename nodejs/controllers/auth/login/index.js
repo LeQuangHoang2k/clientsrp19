@@ -4,12 +4,13 @@ const {
   generateToken,
   generateRefreshToken,
 } = require("../../../middlewares/gennerate-token");
+const { resetRequest } = require("../../../utils/reset-request");
 
 exports.login = async (req, res) => {
-  delete req.userDB;
-
   res.status(200).json({
-    access_token: await generateToken(req.userDB),
-    refresh_token: await generateRefreshToken(req.userDB),
+    access_token: await generateToken(req.custom.userDB),
+    refresh_token: await generateRefreshToken(req.custom.userDB),
   });
+  
+  resetRequest(req);
 };

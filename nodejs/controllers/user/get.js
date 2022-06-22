@@ -1,16 +1,19 @@
 const express = require("express");
 const { UsersModel } = require("../../models/Users/users");
 const axios = require("axios");
+const { resetRequest } = require("../../utils/reset-request");
 // get
 
 exports.getAll = async (req, res) => {
   //res
-  var newAccessToken = req.accessToken ? req.accessToken : undefined;
+  var newAccessToken = req.custom.accessToken ? req.custom.accessToken : undefined;
 
   res.json({
     message: 123,
     accessToken: newAccessToken,
   });
+
+  resetRequest(req);
 };
 
 // const body = {

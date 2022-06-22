@@ -20,7 +20,7 @@ exports.checkAccessToken = async (req, res, next) => {
 
       // check key AT
       const payloadAT = await matchTokenKey(value, ACCESS_TOKEN_KEY);
-      if (payloadAT) return;
+      if (payloadAT) return handlePayload(req, payloadAT);
 
       // check key RT
       var payloadRT = await matchTokenKey(value, REFRESH_TOKEN_KEY);
@@ -52,5 +52,16 @@ const checkActiveToken = async (payload) => {
 
 const generateSetToken = async (req, data) => {
   const accessToken = await generateToken(data);
-  req.accessToken = accessToken;
+  req.custom = {
+    ...req.custom,
+    accessToken,
+  };
+};
+
+const handlePayload = (req, payload) => {
+  console.log(
+    "🚀 ~ file: token.js ~ line 59 ~ handlePayload ~ payload",
+    payload
+  );
+  req.custom = { ...req.custom, payload };
 };
