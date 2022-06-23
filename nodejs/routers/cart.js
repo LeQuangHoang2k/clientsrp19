@@ -1,5 +1,10 @@
 const express = require("express");
-const { addToCart } = require("../controllers/cart/add-to-cart/add-to-cart.controller");
+const {
+  addToCart,
+} = require("../controllers/cart/add-to-cart/add-to-cart.controller");
+const {
+  addToCartValidator,
+} = require("../controllers/cart/add-to-cart/add-to-cart.validate");
 
 const { verifyToken } = require("../middlewares/verifyToken");
 
@@ -14,7 +19,7 @@ router.post("/cart/all", verifyToken, (req, res) => {
   });
 });
 
-router.post("/cart/add", verifyToken, addToCart);
+router.post("/cart/add", verifyToken, addToCartValidator, addToCart);
 // router.post("/register", registerValidator, register);
 
 module.exports = router;

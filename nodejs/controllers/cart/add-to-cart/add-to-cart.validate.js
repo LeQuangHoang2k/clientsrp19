@@ -1,9 +1,13 @@
+const {
+  checkCartId,
+  checkCartIdNotMatch,
+} = require("../../../middlewares/validators/body/cartId");
 const { verifyInfor } = require("../../../middlewares/verifyInfor");
 
 exports.addToCartValidator = async (req, res, next) => {
-  // check cart id
+  await checkCartId(req, res, next);
 
-  // check cart array
+  await checkCartIdNotMatch(req, res, next);
 
   // verify
   await verifyInfor(req, res, next);
