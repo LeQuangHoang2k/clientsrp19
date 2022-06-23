@@ -5,7 +5,16 @@ const { verifyInfor } = require("../../verifyInfor");
 exports.checkCart = async (req, res, next) => {
   await body("cart", "Undefined or null").exists({ checkFalsy: true }).run(req);
 
-  // check name
+  await checkName(req);
+  await checkPrice(req);
+  await checkImage(req);
+
+  // check price
+
+  // check image
+};
+
+const checkName = async (req) => {
   await body("cart.*.name", "Undefined or null")
     .exists({ checkFalsy: true })
     .run(req);
@@ -17,8 +26,9 @@ exports.checkCart = async (req, res, next) => {
   await body("cart.*.name", "Invalid format")
     .matches(/^[a-zA-Z0-9#\s]+$/)
     .run(req);
+};
 
-  // check price
+const checkPrice = async (req) => {
   await body("cart.*.price", "Undefined or null")
     .exists({ checkFalsy: true })
     .run(req);
@@ -31,6 +41,16 @@ exports.checkCart = async (req, res, next) => {
   await body("cart.*.price", "Must be decimal").isDecimal().run(req);
   await body("cart.*.price", "Must be better than 0")
     .isInt({ min: 1 })
+    .run(req);
+};
+
+const checkImage = async (req) => {
+  await body("cart.*.image", "Undefined or null")
+    .exists({ checkFalsy: true })
+    .run(req);
+
+  await body("cart.*.image", "Invalid format")
+    .matches(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/)
     .run(req);
 };
 
