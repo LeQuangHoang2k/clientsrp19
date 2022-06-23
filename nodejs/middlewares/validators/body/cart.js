@@ -8,10 +8,9 @@ exports.checkCart = async (req, res, next) => {
   await checkName(req);
   await checkPrice(req);
   await checkImage(req);
-
-  // check price
-
-  // check image
+  await checkQuantity(req);
+  await checkTax(req);
+  await checkDescription(req);
 };
 
 const checkName = async (req) => {
@@ -24,7 +23,9 @@ const checkName = async (req) => {
     .run(req);
 
   await body("cart.*.name", "Invalid format")
-    .matches(/^[a-zA-Z0-9#\s]+$/)
+    .matches(
+      /^[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0-9#\s]+$/
+    )
     .run(req);
 };
 
@@ -51,6 +52,52 @@ const checkImage = async (req) => {
 
   await body("cart.*.image", "Invalid format")
     .matches(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/)
+    .run(req);
+};
+
+const checkQuantity = async (req) => {
+  await body("cart.*.quantity", "Undefined or null")
+    .exists({ checkFalsy: true })
+    .run(req);
+
+  await body("cart.*.quantity", "Invalid format")
+    .matches(/^[0-9]+$/)
+    .run(req);
+
+  await body("cart.*.quantity", "Not a number").isNumeric().run(req);
+  await body("cart.*.quantity", "Must be integer").isInt().run(req);
+  await body("cart.*.quantity", "Must be better than 0")
+    .isInt({ min: 1 })
+    .run(req);
+};
+
+const checkTax = async (req) => {
+  await body("cart.*.tax", "Undefined or null")
+    .exists({ checkFalsy: true })
+    .run(req);
+
+  await body("cart.*.tax", "Invalid format")
+    .matches(/^[0-9]+$/)
+    .run(req);
+
+  await body("cart.*.tax", "Not a number").isNumeric().run(req);
+  await body("cart.*.tax", "Must be decimal").isDecimal().run(req);
+  await body("cart.*.tax", "Must be better than 0").isInt({ min: 1 }).run(req);
+};
+
+const checkDescription = async (req) => {
+  await body("cart.*.description", "Undefined or null")
+    .exists({ checkFalsy: true })
+    .run(req);
+
+  await body("cart.*.description", "Length from 3 to 255")
+    .isLength({ min: 3, max: 255 })
+    .run(req);
+
+  await body("cart.*.description", "Invalid format")
+    .matches(
+      /^[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆfFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTuUùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ0-9#\s]+$/
+    )
     .run(req);
 };
 
