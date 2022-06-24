@@ -36,7 +36,7 @@ exports.addToCart = async (req, res) => {
 //   // );
 
 //   const abc = await new CartsModel({ 
-//     user_id: req.custom.payload.data._id,
+//     user_id: req.custom.payload.data._id,   
 //     state: 1,
 //     cart: [
 //       {
