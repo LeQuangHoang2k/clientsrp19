@@ -6,11 +6,10 @@ const { resetRequest } = require("../../utils/reset-request");
 
 exports.getAll = async (req, res) => {
   //res
-  var newAccessToken = req.custom.accessToken ? req.custom.accessToken : undefined;
 
   res.json({
     message: 123,
-    accessToken: newAccessToken,
+    accessToken: req.custom?.accessToken,
   });
 
   resetRequest(req);

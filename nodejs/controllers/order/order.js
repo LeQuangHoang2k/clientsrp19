@@ -1,13 +1,10 @@
 // const { fakeCart } = require("../../../data/backup/cart");
 // const { CartsModel } = require("../../../models/Carts/carts");
+const { OrderDetailsModel } = require("../../models/OrderDetail/order-details");
 const { OrdersModel } = require("../../models/Orders/orders");
 const { resetRequest } = require("../../utils/reset-request");
 
 exports.createOrder = async (req, res) => {
-  var newAccessToken = req.custom.accessToken
-    ? req.custom.accessToken
-    : undefined;
-
   const { body, custom } = req;
   console.log(
     "🚀 ~ file: order.js ~ line 8 ~ exports.createOrder= ~ body,custom",
@@ -32,9 +29,16 @@ exports.createOrder = async (req, res) => {
     orderSave._id
   );
 
+  const orderDetailsSave = new OrderDetailsModel({
+    order_id: orderSave._id,
+    order_detail: req.body.order_detail,
+  });
+
+  await orderDetailsSave.save();
+
   res.json({
     message: 123,
-    accessToken: newAccessToken,
+    accessToken: req.custom?.accessToken,
   });
 
   resetRequest(req);
