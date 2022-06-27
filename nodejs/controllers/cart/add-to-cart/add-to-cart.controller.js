@@ -20,6 +20,8 @@ exports.addToCart = async (req, res) => {
 
   resetRequest(req);
 };
+
+
 // const { fakeCart } = require("../../../data/backup/fake-cart");
 // const { CartsModel } = require("../../../models/Carts/carts");
 // const { resetRequest } = require("../../../utils/reset-request");

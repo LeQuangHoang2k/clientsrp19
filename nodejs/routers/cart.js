@@ -11,7 +11,9 @@ const { verifyToken } = require("../middlewares/verifyToken");
 const router = express.Router();
 
 router.post("/cart/all", verifyToken, (req, res) => {
-  var newAccessToken = req.accessToken ? req.accessToken : undefined;
+  var newAccessToken = req.custom.accessToken
+    ? req.custom.accessToken
+    : undefined;
 
   res.json({
     message: 123,
