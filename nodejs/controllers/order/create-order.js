@@ -1,5 +1,3 @@
-// const { fakeCart } = require("../../../data/backup/cart");
-// const { CartsModel } = require("../../../models/Carts/carts");
 const { OrderDetailsModel } = require("../../models/OrderDetail/order-details");
 const { OrdersModel } = require("../../models/Orders/orders");
 const { resetRequest } = require("../../utils/reset-request");
@@ -23,11 +21,6 @@ exports.createOrder = async (req, res) => {
   });
 
   await orderSave.save();
-
-  console.log(
-    "🚀 ~ file: order.js ~ line 16 ~ exports.createOrder= ~ orderSave",
-    orderSave._id
-  );
 
   const orderDetailsSave = new OrderDetailsModel({
     order_id: orderSave._id,

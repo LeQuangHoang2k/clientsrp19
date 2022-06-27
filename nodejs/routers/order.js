@@ -1,5 +1,5 @@
 const express = require("express");
-const { createOrder } = require("../controllers/order/order");
+const { createOrder } = require("../controllers/order/create-order");
 
 const { verifyToken } = require("../middlewares/verifyToken");
 

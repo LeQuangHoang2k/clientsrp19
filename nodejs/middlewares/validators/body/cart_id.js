@@ -22,12 +22,6 @@ exports.checkCartIdNotMatch = async (req, res, next) => {
       const cartFind = await CartsModel.findOne({ _id: value });
 
       if (!cartFind) return Promise.reject("not match");
-
-      //   await saveProductInRequest(req, cartFind);
     })
     .run(req);
 };
-
-// const saveProductInRequest = async (req, data) => {
-//   req.custom = { ...req.custom, productDB: data };
-// };

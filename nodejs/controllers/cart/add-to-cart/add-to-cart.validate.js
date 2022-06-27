@@ -2,7 +2,7 @@ const { checkCart } = require("../../../middlewares/validators/body/cart");
 const {
   checkCartId,
   checkCartIdNotMatch,
-} = require("../../../middlewares/validators/body/cartId");
+} = require("../../../middlewares/validators/body/cart_id");
 const { verifyInfor } = require("../../../middlewares/verifyInfor");
 
 exports.addToCartValidator = async (req, res, next) => {
