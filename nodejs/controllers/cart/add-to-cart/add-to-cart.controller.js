@@ -35,8 +35,8 @@ exports.addToCart = async (req, res) => {
 //   //   { upsert: true } // Make this update into an upsert
 //   // );
 
-//   const abc = await new CartsModel({ 
-//     user_id: req.custom.payload.data._id,   
+//   const abc = await new CartsModel({
+//     user_id: req.custom.payload.data._id,
 //     state: 1,
 //     cart: [
 //       {
